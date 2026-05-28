@@ -1,0 +1,31 @@
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((640, 640))
+
+screen.fill((255, 255, 255))
+
+running = True
+x = 0
+
+font = pygame.font.Font(None, size=30)
+
+while running:
+
+    text = font.render('Hi game', True, (0, 0, 0))
+    text = pygame.transform.scale(text, 
+                       (text.get_width() * 3, 
+                        text.get_height() * 3))
+    screen.blit(text, (290, 150))
+    pygame.display.update()
+
+    x+= 1
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.display.update()
+
+pygame.quit()
